@@ -15,17 +15,17 @@ This package provides a seamless and intuitive way to integrate Qonto's banking 
 
 Using npm:
 ```bash
-npm install qonto-client
+npm install @roadmate-io/qonto-client
 ```
 
 Using yarn:
 ```bash
-yarn add qonto-client
+yarn add @roadmate-io/qonto-client
 ```
 
 Using pnpm:
 ```bash
-pnpm add qonto-client
+pnpm add @roadmate-io/qonto-client
 ```
 
 *Note: Environment strictly requires **Node.js >= 20.0.0**.*
@@ -35,7 +35,7 @@ pnpm add qonto-client
 To start interacting with Qonto, supply your credentials (login slug and secret key). You can generate these credentials through your Qonto web application in `Settings > Integrations > API`.
 
 ```typescript
-import { QontoClient } from 'qonto-client';
+import { QontoClient } from '@roadmate-io/qonto-client';
 
 const client = new QontoClient({
   login: 'your-organization-slug',
@@ -46,6 +46,7 @@ const client = new QontoClient({
 async function getOrgInfo() {
   try {
     const { organization } = await client.organizations.getCurrent();
+    // Knowing your organization 
     console.log(`Connected to: ${organization.name}`);
   } catch (error) {
     console.error(error);
@@ -59,9 +60,11 @@ getOrgInfo();
 
 **List Transactions for a Specific Account**
 ```typescript
+const bank_account_id = organization.bank_accounts[0].id;
+// You might want to have this bank_account_id in your environments var so you don't have to query organizations
 const { transactions, meta } = await client.transactions.list({
-  slug: 'your-organization-slug',
-  iban: 'FR7612345678901234567890123'
+  bank_account_id,
+  // other filters go here
 });
 
 console.log(`Successfully fetched ${transactions.length} transactions!`);
