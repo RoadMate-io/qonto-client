@@ -1,7 +1,15 @@
 {
   "name": "@roadmate-io/qonto-client",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "TypeScript client library for the Qonto Business API",
+  "keywords": [
+    "qonto",
+    "qonto-api",
+    "banking",
+    "fintech",
+    "typescript",
+    "api-client"
+  ],
   "author": "RoadMate",
   "homepage": "https://roadmate.io",
   "repository": {
@@ -24,7 +32,7 @@
     "test": "vitest run",
     "artifactregistry-login": "npx google-artifactregistry-auth",
     "publish:gcp": "npm publish",
-    "publish:npm": "npm publish --registry https://registry.npmjs.org --access public",
+    "publish:npm": "npm publish --@roadmate-io:registry=https://registry.npmjs.org --access public",
     "update": "npm test && npm run build && npm run artifactregistry-login && npm run bump && npm run publish:gcp && npm run publish:npm",
     "bump": "node ./package-bump.mjs"
   },
