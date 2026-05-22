@@ -1,6 +1,6 @@
 {
   "name": "@roadmate-io/qonto-client",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "TypeScript client library for the Qonto Business API",
   "keywords": [
     "qonto",
