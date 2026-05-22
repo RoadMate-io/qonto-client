@@ -1,0 +1,34 @@
+qonto-client/
+├── package.json
+├── tsconfig.json
+└── src/
+    ├── index.ts              ← QontoClient (wires everything)
+    ├── client.ts             ← axios instance + auth + QontoApiError
+    ├── types/
+    │   └── index.ts          ← all TypeScript interfaces
+    └── resources/            ← 25 files, one per API group
+        ├── organizations.ts          ← show, getCurrent
+        ├── memberships.ts            ← list, getCurrent, create
+        ├── transactions.ts           ← list, retrieve, uploadAttachment, listAttachments
+        ├── attachments.ts            ← listForTransaction, removeAllFromTransaction, list, retrieve, create, remove
+        ├── statements.ts             ← list, retrieve
+        ├── bankAccounts.ts           ← list, retrieve, create, update, close, downloadIbanCertificate
+        ├── cards.ts                  ← list, retrieve, create, createBulk, updateLimits, updateRestrictions, updateOptions, updateNickname, update, lock, block, unlock, unblock, discard, cancel, renew, reportLost, reportStolen, getSensitiveData, updatePin, blockPin, unblockPin, checkPin, getPin
+        ├── sepaTransfers.ts          ← listBulk, getBulk, createBulk, create, retrieve, cancel
+        ├── beneficiaries.ts          ← list, create, remove, retrieve, update, trust, untrust
+        ├── sepaDirectDebit.ts        ← listMandates, getMandate, createMandate, listSubscriptions, getSubscription, createSubscription, cancelSubscription
+        ├── internalTransfers.ts      ← create
+        ├── internationalTransfers.ts ← list, retrieve, create, cancel, listCurrencies, createQuote, getQuote, getPurposeCodes, retrieveDetails
+        ├── paymentLinks.ts           ← list, retrieve, create, deactivate, listPayments
+        ├── webhooks.ts               ← list, retrieve, create, update, remove
+        ├── clients.ts                ← list, retrieve, create, update, remove
+        ├── clientInvoices.ts         ← list, retrieve, create, update, remove, finalize, markAsPaid, unmarkAsPaid, cancel, send, sendByEinvoice, upload, listUploads
+        ├── supplierInvoices.ts       ← list, retrieve, createBulk, markAsPaid, unmarkAsPaid, reject
+        ├── creditNotes.ts            ← list, retrieve, create
+        ├── quotes.ts                 ← list, retrieve, create, delete, send
+        ├── products.ts               ← list, retrieve, create, delete
+        ├── teams.ts                  ← list, create
+        ├── labels.ts                 ← list, retrieve, create
+        ├── insuranceContracts.ts     ← list, retrieve, create, update, cancel, uploadDocument, removeDocument
+        ├── requests.ts               ← list, createFlashCardRequest, createVirtualCardRequest, createMultiTransferRequest, approve, decline
+        └── oauth.ts                  ← getToken, revokeToken
